@@ -15,7 +15,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '10.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Publish
       run: dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
@@ -24,5 +24,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: WindowsSystemWidget
-        path: bin/Release/net10.0-windows/win-x64/publish/
+        path: bin/Release/net8.0-windows/win-x64/publish/
 
