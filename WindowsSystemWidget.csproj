@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+    <AssemblyName>WindowsSystemWidget</AssemblyName>
+    <RootNamespace>WindowsSystemWidget</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Simone Castiglia</Authors>
+    <Description>System Monitor Widget for Windows</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
+  </ItemGroup>
+
+</Project>
+
