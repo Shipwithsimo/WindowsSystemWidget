@@ -3,7 +3,10 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Timers;
+using System.Drawing;
+using System.IO;
 using WindowsSystemWidget.Services;
 
 namespace WindowsSystemWidget.Views
@@ -23,12 +26,30 @@ namespace WindowsSystemWidget.Views
             _diskService = DiskService.Instance;
             _processService = ProcessService.Instance;
 
-            // Mostra la finestra all'avvio
-            Show();
+            // Crea icona dinamicamente
+            CreateTrayIcon();
+
+            // Nascondi la finestra all'avvio (mostra solo tray icon)
+            Hide();
 
             // Avvia aggiornamenti UI
             StartUIUpdates();
             UpdateUI();
+        }
+
+        private void CreateTrayIcon()
+        {
+            // Crea un'icona semplice programmaticamente
+            using var bitmap = new Bitmap(32, 32);
+            using var g = Graphics.FromImage(bitmap);
+            g.Clear(System.Drawing.Color.FromArgb(88, 86, 214)); // Colore primario
+            g.FillRectangle(new SolidBrush(System.Drawing.Color.White), 8, 6, 16, 4);
+            g.FillRectangle(new SolidBrush(System.Drawing.Color.White), 8, 14, 12, 4);
+            g.FillRectangle(new SolidBrush(System.Drawing.Color.White), 8, 22, 8, 4);
+            
+            var handle = bitmap.GetHicon();
+            var icon = System.Drawing.Icon.FromHandle(handle);
+            TrayIcon.Icon = icon;
         }
 
         private void StartUIUpdates()
