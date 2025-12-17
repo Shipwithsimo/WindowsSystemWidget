@@ -70,10 +70,10 @@ namespace WindowsSystemWidget.Views
 
             var (statusText, statusColor) = memStats.Status switch
             {
-                MemoryStatus.Ok => ("Stato: OK ✓", Brushes.LimeGreen),
-                MemoryStatus.Warning => ("Stato: Attenzione ⚠", Brushes.Orange),
-                MemoryStatus.Critical => ("Stato: Critico ⚠", Brushes.Red),
-                _ => ("Stato: Sconosciuto", Brushes.Gray)
+                MemoryStatus.Ok => ("Stato: OK ✓", System.Windows.Media.Brushes.LimeGreen),
+                MemoryStatus.Warning => ("Stato: Attenzione ⚠", System.Windows.Media.Brushes.Orange),
+                MemoryStatus.Critical => ("Stato: Critico ⚠", System.Windows.Media.Brushes.Red),
+                _ => ("Stato: Sconosciuto", System.Windows.Media.Brushes.Gray)
             };
             MemoryStatusText.Text = statusText;
             MemoryStatusText.Foreground = statusColor;
