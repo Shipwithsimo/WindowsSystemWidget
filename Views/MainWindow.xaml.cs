@@ -23,8 +23,8 @@ namespace WindowsSystemWidget.Views
             _diskService = DiskService.Instance;
             _processService = ProcessService.Instance;
 
-            // Nascondi la finestra all'avvio (mostra solo tray icon)
-            Hide();
+            // Mostra la finestra all'avvio
+            Show();
 
             // Avvia aggiornamenti UI
             StartUIUpdates();
