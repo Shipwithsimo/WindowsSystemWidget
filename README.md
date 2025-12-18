@@ -1,70 +1,81 @@
-# Windows System Widget
+# 🪟 Windows System Widget
 
-Widget per monitorare le risorse di sistema su Windows.
+A lightweight Windows system widget designed to monitor **RAM usage** and **available disk space** in real time.
 
-**Creato da Simone Castiglia**
+This project was built as a hands-on exercise to explore **system-level data**, resource monitoring, and the development of small but useful desktop utilities.  
+The focus is on **functionality, clarity, and performance**, rather than visual complexity or overengineering.
 
-## Funzionalità
+---
 
-- 📊 Monitoraggio RAM in tempo reale
-- 💾 Statistiche disco
-- 📋 Lista processi più pesanti
-- 🧹 Libera memoria RAM
-- ⚠️ Chiudi app pesanti
-- 🚀 Avvio automatico (opzionale)
+## 📦 Technologies
 
-## Requisiti
+- JavaScript
+- Windows system APIs
+- Desktop environment utilities
 
-- Windows 10/11
-- .NET 6.0 Runtime
+*(The stack was intentionally kept simple to better understand how system information is retrieved and displayed.)*
 
-## Come compilare
+---
 
-### Con Visual Studio 2022
+## 🦄 Features
 
-1. Apri `WindowsSystemWidget.csproj`
-2. Premi `F5` per compilare ed eseguire
+- 📊 **Real-time RAM monitoring**  
+  Displays current memory usage with immediate updates.
 
-### Da riga di comando
+- 💾 **Available disk space tracking**  
+  Shows how much disk space is free on the system.
 
-```bash
-# Installa .NET SDK 6.0+ da https://dotnet.microsoft.com/download
+- 🪶 **Lightweight widget**  
+  Minimal impact on system resources.
 
-# Compila
-dotnet build
+- 🧩 **Simple and clear UI**  
+  Designed to be readable at a glance without distractions.
 
-# Esegui
-dotnet run
+---
 
-# Pubblica (crea .exe standalone)
-dotnet publish -c Release -r win-x64 --self-contained true
-```
+## 👩🏽‍🍳 The Process
 
-## Struttura progetto
+The project started with researching how to retrieve reliable system information from Windows, focusing on memory and storage metrics.
 
-```
-WindowsSystemWidget/
-├── App.xaml              # Configurazione app e risorse
-├── App.xaml.cs           # Logica avvio e auto-launch
-├── Services/
-│   ├── MemoryService.cs  # Statistiche RAM
-│   ├── DiskService.cs    # Statistiche disco
-│   ├── ProcessService.cs # Gestione processi
-│   └── Formatters.cs     # Utilità formattazione
-└── Views/
-    ├── MainWindow.xaml   # Interfaccia utente
-    └── MainWindow.xaml.cs
-```
+Once the data source was identified, I worked on:
+- Fetching system values safely and efficiently
+- Updating the UI in real time
+- Keeping the widget lightweight and responsive
+- Structuring the code so it could be easily extended in the future
 
-## Icona
+The goal was not to build a complex application, but a **useful and understandable tool** that solves a specific problem well.
 
-Per aggiungere un'icona personalizzata:
-1. Salva l'icona come `icon.ico` nella cartella del progetto
-2. Ricompila l'app
+---
 
-## Note
+## 📚 What I Learned
 
-- L'app si minimizza nella System Tray (area notifiche)
-- Clicca sull'icona per aprire/chiudere il widget
-- Tasto destro per menu contestuale
+### 🧠 System Monitoring
+- How RAM usage and disk space are calculated and exposed by the operating system
+- Differences between raw system values and user-friendly metrics
 
+### 🧱 Desktop Utility Design
+- How to design small tools with a clear and focused purpose
+- Balancing functionality and simplicity
+
+### 🧩 Code Structure
+- Writing maintainable code for system-related features
+- Keeping logic separated from presentation
+
+---
+
+## 💭 How Can It Be Improved?
+
+- Add CPU usage monitoring
+- Add refresh rate customization
+- Support multiple disks
+- Add visual indicators or charts
+- Improve UI customization options
+- Package it as an installable executable
+
+---
+
+## 🚦 Running the Project
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Thecodepunisher/WindowsSystemWidget.git
